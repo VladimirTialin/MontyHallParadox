@@ -14,6 +14,12 @@ public class Price {
         }
         return door;
     }
+    public  Map<Integer,String> doors1(){
+        Random rnd= new Random();
+        Map<Integer,String> door=new HashMap<>(Map.of(1,SHEEP,2,SHEEP,3,SHEEP));
+        door.replace(rnd.nextInt(1,3),AUTO);
+        return door;
+    }
 
     public  String getAUTO() {
         return AUTO;
@@ -21,6 +27,7 @@ public class Price {
 
     public Price() {
     }
+
 
 }
 

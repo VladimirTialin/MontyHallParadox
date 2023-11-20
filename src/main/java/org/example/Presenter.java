@@ -1,21 +1,28 @@
 package org.example;
 
-import org.ietf.jgss.GSSContext;
+import java.util.Map;
+import java.util.Random;
 
 public class Presenter {
     private static int posAuto;
+    private Price price=new Price();
 
 
-    public void nextStep(String name){
-        Gamer gamer=new Gamer(name);
-        Price price=new Price();
-        String [] doors=price.doors();
-        for (int i = 0; i < doors.length; i++) {
-            if (doors[i].equals(price.getAUTO())) {
-                posAuto = i;
+    public int findAuto(Map<Integer,String> doors){
+        doors=price.doors1();
+        for (Map.Entry<Integer, String> temp : doors.entrySet()) {
+            if (temp.getValue().equals(price.getAUTO())) {
+                posAuto = temp.getKey();
                 break;
             }
         }
-        System.out.printf("%s, хотите выбрать другую дверь?", name);
+        return posAuto;
+    }
+    public String openDoor(Map<Integer,String> doors, int door){
+       return doors.get(door);
+    }
+    public int door(){
+        Random rnd= new Random();
+        return rnd.nextInt(1,3);
     }
 }
