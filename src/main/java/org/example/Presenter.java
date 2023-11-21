@@ -9,7 +9,7 @@ public class Presenter {
 
 
     public int findAuto(Map<Integer,String> doors){
-        doors=price.doors1();
+        doors=price.doors();
         for (Map.Entry<Integer, String> temp : doors.entrySet()) {
             if (temp.getValue().equals(price.getAUTO())) {
                 posAuto = temp.getKey();
@@ -21,8 +21,12 @@ public class Presenter {
     public String openDoor(Map<Integer,String> doors, int door){
        return doors.get(door);
     }
-    public int door(){
+    public int door(int userChoose){
         Random rnd= new Random();
-        return rnd.nextInt(1,3);
+        int choose;
+        while (true) {
+            choose = rnd.nextInt(1, 3);
+            if(choose!=userChoose) return choose;
+        }
     }
 }
