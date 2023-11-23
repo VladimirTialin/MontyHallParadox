@@ -6,10 +6,6 @@ public class User {
     private static String name;
     private Scanner scanner = new Scanner(System.in);
 
-    public User(String name) {
-        User.name = name;
-    }
-
     public User() {
     }
 
@@ -21,8 +17,12 @@ public class User {
         return door;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public boolean reply() {
-        String ans = scanner.nextLine();
+        String ans=scanner.nextLine();
         while (true) {
             if (ans.equalsIgnoreCase("y")) return true;
             else if (ans.equalsIgnoreCase("n")) return false;
