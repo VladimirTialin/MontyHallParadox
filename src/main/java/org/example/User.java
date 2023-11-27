@@ -1,28 +1,16 @@
 package org.example;
 
-import java.util.Scanner;
-
+import java.util.Random;
 public class User {
-    private static String name;
-    private Scanner scanner = new Scanner(System.in);
-
+    private static final Random rnd = new Random();
+    private final String [] chooseAns={"y","n"};
     public User() {
     }
-
-    public int choose(int numberOfDoors, int door) {
-        while (door < 1 || door > numberOfDoors) {
-            System.out.print("You entered the wrong door number, try again: ");
-            door = scanner.nextInt();
-        }
-        return door;
+    public int choose(int [] key) {
+           return key[rnd.nextInt(key.length)];
     }
-
-    public String getName() {
-        return name;
-    }
-
     public boolean reply() {
-        String ans=scanner.nextLine();
+        String ans=chooseAns[rnd.nextInt(chooseAns.length)];
         while (true) {
             if (ans.equalsIgnoreCase("y")) return true;
             else if (ans.equalsIgnoreCase("n")) return false;
